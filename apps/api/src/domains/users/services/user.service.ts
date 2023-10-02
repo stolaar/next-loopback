@@ -1,14 +1,13 @@
-import { DataObject, repository } from '@loopback/repository'
-import { UserRepository } from '../repositories/user.repository'
-import { User } from '../models'
+import { Repository, typeorm } from '@loopback/typeorm'
+import { User } from '../../../entities'
 
 export class UserService {
   constructor(
-    @repository(UserRepository)
-    private userRepository: UserRepository,
+    @typeorm.repository(User)
+    private userRepository: Repository<User>,
   ) {}
-  async createUser(user: DataObject<User>) {
-    return this.userRepository.create(user)
+  async createUser(user: User) {
+    return this.userRepository.save(user)
   }
 
   async getUsers() {

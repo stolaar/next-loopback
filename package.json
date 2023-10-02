@@ -1,5 +1,5 @@
 {
-  "name": "@stolaar/loopback-next",
+  "name": "loopback-next",
   "private": true,
   "version": "0.0.1",
   "workspaces": [
